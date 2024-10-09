@@ -1,73 +1,59 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
-
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
-
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+# Email Service
 
 ## Description
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+Ce projet est un service d'envoi d'e-mails qui facilite la gestion et l'envoi d'e-mails depuis votre application. Il permet d'enregistrer les e-mails envoyés et de gérer les statistiques associées. Une middleware API Key a été intégrée pour renforcer la sécurité des requêtes et protéger l'accès aux fonctionnalités critiques.
+
+## Fonctionnalités
+
+- **Envoi d'e-mails :** Envoyez des e-mails à différents destinataires avec des informations personnalisées.
+- **Journalisation :** Enregistre les e-mails envoyés pour un suivi et une vérification ultérieurs.
+- **Statistiques :** Suivez les statistiques d'envoi d'e-mails, y compris le nombre d'e-mails envoyés et les échecs.
+- **Middleware API Key :** Sécurisez les accès avec une clé API.
+
+## Technologies Utilisées
+
+- **NestJS** - Framework pour construire des applications Node.js efficaces.
+- **TypeORM** - ORM pour interagir avec les bases de données.
+- **NodeMailer** - Bibliothèque pour envoyer des e-mails.
+- **Swagger** - Documentation API interactive.
+- - **MySQL** - base de données relationnel.
 
 ## Installation
 
-```bash
-$ npm install
-```
+1. Clonez le dépôt :
+   ```bash
+   git clone https://github.com/mahdi-jeljeli/email-service.git
+   
+2.Accédez au répertoire du projet
+   cd email-service
+   
+3.Installez les dépendances :
 
-## Running the app
+     npm install
+  
+   
+4.Configurez votre environnement (voir .env.example pour les variables nécessaires).
 
-```bash
-# development
-$ npm run start
+     npm run start
+  
+Accédez à la documentation de l'API via Swagger à l'adresse :
 
-# watch mode
-$ npm run start:dev
+  http://localhost:3000/api
+ 
+API
+Envoyer un e-mail
+Endpoint : POST /emails/send
+Corps de la requête :
+  {
+  "recipient": "exemple@domain.com",
+  "subject": "Objet de l'e-mail",
+  "body": "Contenu de l'e-mail",
+  "emailType": "type"
+}
 
-# production mode
-$ npm run start:prod
-```
+Obtenir des statistiques
+Endpoint : GET /statistics/:projectName
 
-## Test
 
-```bash
-# unit tests
-$ npm run test
 
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
-```
-
-## Support
-
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](LICENSE).
